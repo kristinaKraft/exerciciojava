@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <label for="nome">Informe nome da pessoa</label>
+        <input type="text" id="nome" placeholder="Informe nome" >
+        <button onclick="inserir()">Inserir</button>
+    </div>
+    <div>
+        <label for="email">Informe email</label>
+        <input type="text" id="email" placeholder="Informe email" >
+        <button onclick="inserir()">Inserir</button>
+    </div>  
+    <div>
+        <label for="telefone">Informe telefone</label>
+        <input type="tel" id="telefone" placeholder="Informe telefone" >
+        <button onclick="inserir()">Inserir</button>
+    </div>  
+    <hr>
+    <button onclick="carregar()">carregar</button>
+    <script>
+     
+     const cadastro = ["nome", "email", "telefone"];
+     document.getElementById("demo").innerHTML = cadastro;   
+     
+     console.log(nome[0])
+     console.log(email[1])
+     console.log(telefone[2])
+    
+     const collection = document.getElementsByTagName("li");
+     
+     /*Criar uma página para cadastrar contatos. 
+     Deve ser informado o nome, email e telefone do contato.
+     Deve ser mostrado todos os contatos cadastrados em uma tabela. 
+     Colocar uma opção para alterar um contato e outra para excluir o contato.*/
+       
+    /*function carregar()
+    {
+        let i = 0
+        let itens = ``
+        while(i < cadastro.length)
+        {
+            itens +=`<li>${cadastro[i]}</li>`
+            i++
+        }
+        document.getElementsByTagName("ul")
+        [0].innerHTML = itens
+    }*/
+    </script>
+     
+</body>
+</html>
