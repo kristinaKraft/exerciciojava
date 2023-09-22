@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //sem retorno
+        function soma(a, b){
+           console.log(a + b)
+        }
+        soma(10,5)
+
+        //com retorno
+        function subtrair(a, b){
+           let resultado = a - b
+           return resultado
+        }
+
+       console.log(subtrair(10, 5))
+       let retorno = subtrair(20,3)
+       console.log(retorno)
+
+       //função anonima
+       var x = function(a, b, c){
+         let resultado = a + b + c
+         return resultado
+       }
+
+       retorno = x(10,20,30)
+       console.log(retorno)
+
+       //arrow funciton
+       //var y = (a, b, c) => a + b + c
+      // var y = (a, b, c) => {return a + b + c}
+      var y = (a, b, c) => {
+          let resultado = a + b +c
+          return resultado
+        }
+
+       console.log(y(10,20,40))
+    </script>
+</body>
+</html>

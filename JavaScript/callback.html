@@ -1,0 +1,39 @@
+callback.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="soma(10,250,mostraResultadoEmParagrafo)">Soma</button>
+    <p>Resultado: <span id="rp"></span></p>
+    <hr>
+    <button onclick="soma(10,200, mostraResultadoEmLabel)">Soma</button>
+    <label>Resultado: <span id="rl"></span></label>
+    
+    <script>
+       /* function soma(a,b){
+            let resultado = a + b
+            //forte acoplamento
+            //mostraResultadoEmParagrafo(resultado)
+           /// mostraResultadoEmLabel(resultado)
+        }*/
+
+        function soma(a, b, callback){
+            let resultado = a + b
+            callback(resultado)
+        }
+
+        function mostraResultadoEmParagrafo(resultado){
+           document.getElementById('rp').innerHTML = resultado
+        }
+
+        function mostraResultadoEmLabel(resultado){
+            document.getElementById('rl').innerHTML = resultado 
+        }
+    </script>
+</body>
+</html>

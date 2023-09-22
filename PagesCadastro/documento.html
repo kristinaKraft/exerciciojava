@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de cadastros</title>
+</head>
+<body>
+    <!--
+    Criar uma página para cadastrar contatos. Deve ser informado o nome, email e telefone do contato. 
+    Deve ser mostrado todos os contatos cadastrados em uma tabela. 
+    Colocar uma opção para alterar um contato e outra para excluir o contato.
+    -->
+        <p>Insira o nome: </p>
+        <input type="text" id="nome" placeholder="Digite o nome" />
+        <p>Insira o e-mail: </p>
+        <input type="text" id="email" placeholder="Digite o e-mail" />
+        <p>Insira o telefone: </p>
+        <input type="text" id="telefone" placeholder="Digite o telefone" /><br>
+
+        <button id="novoContato" onclick="adicionarContato()">Adicionar Contato</button>
+
+        <table>
+            <thead>
+                <th>
+                    <!--
+                    <td>-Nome-</td>
+                    <td>-Email-</td>
+                    <td>-Telefone-</td>
+                    -->
+                </th>
+            </thead>
+            <tbody>
+                <!--Listar dados dos contatos-->
+            </tbody>
+        </table>
+    <button onclick="carregarLista()">Carregar Lista</button>
+
+    <script>
+        //const pessoa = {nome:"anallu", email:"aanalu0224@gmail.com", telefone:"(47)99231-4893"}
+        let contato = []
+
+        function adicionarContato(){
+            let nome = document.getElementById("nome")
+            let email = document.getElementById("email")
+            let telefone = document.getElementById("telefone")
+            let novaContato = {nome, email, telefone}
+            
+            if (nome.value == "") {
+                alert("Adicione um nome")
+                nome.focus()
+                return
+            }
+
+            if (email.value == "") {
+                alert("Adicione um e-mail")
+                email.focus()
+                return
+            }
+
+            if (telefone.value == "") {
+                alert("Adicione um telefone")
+                telefone.focus()
+                return
+            }
+
+            contato.push(novoContato.value)
+            novoContato.value = ''
+
+            console.log(contato)
+            console.log(novoContato)
+        }
+
+        /*
+        function carregarLista(){
+            let i = 0
+            let ListaPessoas = ''
+
+            while(i < pessoas.length) {
+                ListaPessoas += `<li>${pessoa[i]}</li>`
+                i++
+            }
+
+            document.getElementsByTagName("ul")[0].innerHTML = ListaPessoas
+        }
+        */
+    </script>
