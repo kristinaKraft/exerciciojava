@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--Faça uma página que permita ao usuário digitar números e inserir em um array.
+     Na sequência crie um recurso que permita ao clique de um botão 
+     mostrar os números digitados em ordem crescente.-->
+
+    <div>
+        <label for="digite">Informe numeros</label>
+        <input type="text" id="numeros" placeholder="Informe numeros" >
+        <button onclick="inserir()">Inserir</button>
+    </div>
+    <script>
+        
+        function inserir(){
+            let novoNumeros = document.getElementById('numero')
+
+            if(novoNumero.value == ''){
+                alert("É preciso informar o numero")
+                novoNumero.focus()
+                return
+            }
+    </script>
+ 
+   
+</body>
+</html>

@@ -1,0 +1,74 @@
+calculadora.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <input type="text" id="display">
+        <div>
+            <button onclick="inserir(this)">1</button>
+            <button onclick="inserir(this)">2</button>
+            <button onclick="inserir(this)">3</button>
+            <button onclick="inserir(this)">4</button>
+            <button onclick="inserir(this)">5</button>
+            <button onclick="inserir(this)">6</button>
+            <button onclick="inserir(this)">7</button>
+            <button onclick="inserir(this)">8</button>
+            <button onclick="inserir(this)">9</button>
+        </div>
+        <div> 
+            <button onclick="definirOperacao(TouchList)">C</button>
+            <!--<button onclick="difinirOperacao(this)"><</button>-->
+            <button onclick="definirOperacao(this)">*</button>
+            <button onclick="definirOperacao(this)">/</button>
+            <button onclick="definirOperacao(this)">+</button>
+            <button onclick="definirOperacao(this)">-</button>
+            <button onclick="calcular()">=</button>
+        </div>
+    </div>
+    <script>
+
+        var n1 = 0
+        var n2 = 0
+        var op = ''
+
+        function inserir(item){
+          document.getElementById('display').value +=  item.innerHTML
+        }
+
+        function definirOperacao(item){
+           //definir a operação
+           op = item.innerHTML
+           
+           //pegar o primeiro membro da operação
+           let display = document.getElementById('display')
+           n1 = parseFloat(display.value)
+    
+           //zerar o display
+           display.value = ''
+        }
+
+        function calcular(){
+            let display = document.getElementById('display')
+            n2 = parseFloat(display.value)
+           
+            let resultado = 0
+            //realizar o calculo
+            switch(op){
+                case '*': resultado = n1 * n2; break;
+                case '/': resultado = n1 / n2; break;
+                case '+': resultado = n1 + n2; break;
+                case '-': resultado = n1 - n2; break;
+            }
+
+            display.value = resultado
+        }
+
+    </script>
+</body>
+</html>
