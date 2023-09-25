@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--Faça uma página que permita ao usuário digitar números e inserir em um array.
+ Na sequência crie um recurso que permita ao clique de um botão mostrar:
+ os números digitados em ordem crescente.-->
+
+    <div>
+        <input type="number" placeholder="Informe numero">
+        <button onclick="inserir(listar)">Inserir</button>
+        <div>
+            Numeros inseridos: <span></span>
+        </div>
+        <button onclick="mostrarArrayOrdenado(listar)">Ordenar array</button>
+        <div>
+            Numeros ordenados: <span></span>
+        </div>
+    </div>
+
+    <script>
+        let numeros = []
+        function inserir(callback) {
+            let inputNumero = document.getElementsByTagName('input')[0]
+            //validar se numero foi informado
+
+            //adicionar no array
+            numeros.push(parseInt(inputNumero.value))
+
+            inputNumero.value = ''
+            inputNumero.focus()
+            callback(0)
+        }
+
+        function listar(element) {
+            let x = 0
+            let ondeColocar = document.getElementsByTagName('span')[element]
+            let itens = ''
+            while (x < numeros.length) {
+                itens += `${numeros[x]}, `
+                x++
+            }
+            itens = itens.substring(0, itens.length - 2)
+
+            ondeColocar.innerHTML = itens
+        }
+
+        function mostrarArrayOrdenado(callback) {
+            //ordenar array em ordem crescente
+            //[10, 3, 4, 3]
+            let trocou = true
+            while (trocou) {
+                trocou = false
+                for (let i = 0; i < numeros.length - 1; i++) {
+                    if (numeros[i] > numeros[i + 1]) {
+                        let temp = numeros[i + 1]
+                        numeros[i + 1] = numeros[i]
+                        numeros[i] = temp
+                        trocou = true
+                    }
+                }
+            }
+            callback(1)
+        }
+    </script>
+</body>
+
+</html>
