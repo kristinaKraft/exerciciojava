@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body> 
+    <script>
+        let numeros = [40, 100, 1, 5, 25, 10]
+        //considera os numeros como texto
+        console.log(numeros.sort())
+
+        //considera conteudo como numero
+        console.log(numeros.sort((a,b) => a - b))
+
+        //considera conteudo como numero e ordena decrescente
+        console.log(numeros.sort((a,b) => b - a))
+
+
+    </script>
+</body>
+</html>

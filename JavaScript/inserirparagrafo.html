@@ -1,0 +1,45 @@
+inserirparagrafo.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       select, option, li{
+            color: red
+        }
+    </style>
+</head>
+<body>
+    <input type="text" placeholder="informe uma fruta" onblur="addParagrafo()">
+    <div>
+        <!--Adicionar paragrafos com frutas-->
+    </div>
+    <!--
+    <p>texto</p>
+    <ul>
+        <li>dois</li>
+        <li>tres</li>
+    </ul>
+
+    <select name="" id="">
+        <option value="">um</option>
+        <option value="">dois</option>
+    </select>
+
+
+-->
+  <script>
+     function addParagrafo(){
+        let fruta = document.getElementsByTagName('input')[0]
+        document.getElementsByTagName('div')[0].innerHTML += `<p>${fruta.value}</p>`
+        
+        //limpar campo
+        fruta.value = ''
+        fruta.focus()
+     }
+  </script>
+</body>
+</html>

@@ -9,7 +9,7 @@
 <body>
     <!--Faça uma página que permita ao usuário digitar números e inserir em um array.
      Na sequência crie um recurso que permita ao clique de um botão 
-     mostrar os números digitados em ordem crescente.-->
+     mostrar os números digitados em ordem crescente. (AULA 25/09 E 26/09)-->
 
     <div>
         <label for="digite">Informe numeros</label>
@@ -17,15 +17,26 @@
         <button onclick="inserir()">Inserir</button>
     </div>
     <script>
+        <hr>
+        <button onclick="carregar()">Carregar</button>
         
         function inserir(){
-            let novoNumeros = document.getElementById('numero')
+            let novoNumeros = document.getElementById('numeros')
 
             if(novoNumero.value == ''){
-                alert("É preciso informar o numero")
+                alert("É preciso informar o numeros")
                 novoNumero.focus()
                 return
             }
+            function carregar(){
+            let i = 0
+            let itens = ''
+            while(i < novoNumero.length){
+               itens += `<li>${novoNumeros[i]}</li>`
+               i++  
+            } 
+            document.getElementsByTagName("ul")[0].innerHTML = itens
+        }    
     </script>
  
    
