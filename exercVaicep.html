@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let cep = '89032345'
+        fetch(`https://viacep.com.br/ws/${cep}/json`)
+        .then ((dados) => dados.json())
+        .then ((response)=> console.log(response))
+
+    </script>
+    <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <input class="form-control" type="text" id="cep" placeholder="Informe o cep" onblur="dadosEndereco()">
+
+        <input class="form-control mt-2" type="text" id="rua" placeholder="Informe o rua">
+
+        <input class="form-control mt-2" type="text" id="bairro" placeholder="Informe o bairro">
+
+        <input class="form-control mt-2" type="text" id="cidade" placeholder="Informe a cidade">
+
+        <input class="form-control mt-2" type="text" id="uf" placeholder="Informe a uf">
+    </div>
+    <script>
+        function dadosEndereco() {
+            let cep = document.getElementById('cep').value
+            fetch(`https://viacep.com.br/ws/${cep}/json/`)
+                .then((dados) => dados.json())
+                .then((response) => {
+                    console.log(response)
+                    document.getElementById('rua').value = response.logradouro
+                    document.getElementById('bairro').value = response.bairro
+                    document.getElementById('cidade').value = response.localidade
+                    document.getElementById('estado').value = response.uf
+                }
+                )
+                .catch((erro) => console.log(erro))
+        }
+    </script>
+</body>
+
+</html>
+
+</body>
+</html>
