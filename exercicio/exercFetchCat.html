@@ -1,37 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .imagem{
+            width: 200px;
+            height: 200px;
+        }
+    </style>
 </head>
+
 <body>
     <!--Usar o fetch para consumir a API
     https://api.thecatapi.com/v1/images/search 
     e mostrar em um card HTML.-->
-    
+    <section class="conteiner">
+        <div id="container">
 
-    <!--terminar o exercicio-->
-
-        <img src="" alt="fotos de gato" with="300" height="300">
-        <button onclick="imagemGato()">Carregar</button> 
-        <figcaption><b>ID: </b> <span></span></figcaption> </figure>
-        <button onclick="imagemGato()">Carregar</button>      
-
+        </div>
+        <div>
+            <button onclick="trocarImagem()">
+                trocar
+            </button>
+        </div>
+    </section>
     <script>
-        function imagemGato() {
-        let imagem = 'src'
-        fetch(`https://api.thecatapi.com/v1/images/search/`)
-        .then ((imagemGato) => imagemGato.json())
-        .then ((response)=> console.log(response))
-        .catch((erro) => console.log(erro))
-        }
-        <img src="./imagemGatojfif" width="100px" height="100px" alt="imagem de onça"/>
 
+function trocarImagem() {
+    
+    fetch(`https://api.thecatapi.com/v1/images/search?limit=10`)
+    .then((dados) => dados.json())
+    .then((response) => {
+            if (response && response.length >= 0) {
+                
+                var container = document.getElementById('container');
+                
+                container.innerHTML = ''
 
+                for (var i = 0; i < response.length; i++) {
+                    var imagem = document.createElement("img");
+                    imagem.classList.add("imagem")
+                    
+                    
+                    const imageUrl = response[i].url;
+                    
+                    imagem.src = imageUrl;
+                    
+                    
+                    container.appendChild(imagem);
+                }
+            }
+        })
+        .catch((erro) => console.log(erro));
+}
     </script>
-
-
-
 </body>
+
 </html>

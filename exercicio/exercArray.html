@@ -1,45 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <!--Faça uma página que permita ao usuário digitar números e inserir em um array.
      Na sequência crie um recurso que permita ao clique de um botão 
      mostrar os números digitados em ordem crescente. (AULA 25/09 E 26/09)-->
 
     <div>
-        <label for="digite">Informe numeros</label>
-        <input type="text" id="numeros" placeholder="Informe numeros" >
+        <label for="numeros">Informe numeros</label>
+        <input type="text" id="numeros" placeholder="Informe numeros">
         <button onclick="inserir()">Inserir</button>
+        <button onclick="carregar()">Carregar</button>
+        <button onclick="crescente()">Crescente</button>
+        <ul id="Lista">
+
+        </ul>
     </div>
     <script>
-        <hr>
-        <button onclick="carregar()">Carregar</button>
-        
-        function inserir(){
-            let novoNumeros = document.getElementById('numeros')
+        var array = []
+        function inserir() {
 
-            if(novoNumero.value == ''){
-                alert("É preciso informar o numeros")
-                novoNumero.focus()
-                return
-            }
-            function carregar(){
-            let i = 0
-            let itens = ''
-            while(i < novoNumero.length){
-               itens += `<li>${novoNumeros[i]}</li>`
-               i++  
-            } 
-            document.getElementsByTagName("ul")[0].innerHTML = itens
-        }    
+            var numero = parseFloat(document.getElementById("numeros").value)
+            array.push(numero)
+            
         }
-        </script>
- 
-   
+        function carregar() {
+            
+            var ulElement = document.getElementById("Lista");
+            ulElement.innerHTML = "";
+            for (var x = 0; x < array.length; x++) {
+
+                
+                var novoLiElement = document.createElement("li");
+
+                
+                var texto = document.createTextNode(array[x]);
+
+                
+                novoLiElement.appendChild(texto);
+
+                
+                ulElement.appendChild(novoLiElement);
+            }
+        }
+        function crescente() {
+            var len = array.length;
+            var ordenou;
+
+            do {
+                ordenou = false;
+
+                for (var i = 0; i < len - 1; i++) {
+                    if (array[i] > array[i + 1]) {
+                        
+                        var temp = array[i];
+                        array[i] = array[i + 1];
+                        array[i + 1] = temp;
+                        ordenou = true;
+                    }
+                }
+            } while (ordenou);
+
+            carregar();
+        }
+        
+        
+    </script>
+
+
 </body>
+
 </html>
